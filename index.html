@@ -1,0 +1,844 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+/* meyer reset -- http://meyerweb.com/eric/tools/css/reset/ , v2.0 | 20110126 | License: none (public domain) */
+
+@include-when-export url(https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext);
+
+/* =========== */
+
+/* pt-serif-regular - latin */
+/* pt-serif-italic - latin */
+/* pt-serif-700 - latin */
+/* pt-serif-700italic - latin */
+:root {
+	--active-file-bg-color: #dadada;
+	--active-file-bg-color: rgba(32, 43, 51, 0.63);
+	--active-file-text-color: white;
+	--bg-color: #f3f2ee;
+	--text-color: #1f0909;
+	--control-text-color: #444;
+	--rawblock-edit-panel-bd: #e5e5e5;
+
+	--select-text-bg-color: rgba(32, 43, 51, 0.63);
+  --select-text-font-color: white;
+}
+
+pre {
+	--select-text-bg-color: #36284e;
+	--select-text-font-color: #fff;
+}
+
+html {
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+}
+
+html, body {
+	background-color: #f3f2ee;
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+	color: #1f0909;
+	line-height: 1.5em;
+}
+
+/*#write {
+	overflow-x: auto;
+    max-width: initial;
+	padding-left: calc(50% - 17em);
+    padding-right: calc(50% - 17em);
+}
+
+@media (max-width: 36em) {
+ 	#write {
+ 		padding-left: 1em;
+    	padding-right: 1em;
+ 	}
+}*/
+
+#write {
+	max-width: 40em;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+			max-width: 914px;
+	}
+}
+
+ol li {
+	list-style-type: decimal;
+	list-style-position: outside;
+}
+ul li {
+	list-style-type: disc;
+	list-style-position: outside;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* styles */
+
+/* ====== */
+
+/* headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+}
+h1 {
+	font-size: 1.875em;
+	/*30 / 16*/
+	line-height: 1.6em;
+	/* 48 / 30*/
+	margin-top: 2em;
+}
+h2,
+h3 {
+	font-size: 1.3125em;
+	/*21 / 16*/
+	line-height: 1.15;
+	/*24 / 21*/
+	margin-top: 2.285714em;
+	/*48 / 21*/
+	margin-bottom: 1.15em;
+	/*24 / 21*/
+}
+h3 {
+	font-weight: normal;
+}
+h4 {
+	font-size: 1.125em;
+	/*18 / 16*/
+	margin-top: 2.67em;
+	/*48 / 18*/
+}
+h5,
+h6 {
+	font-size: 1em;
+	/*16*/
+}
+h1 {
+	border-bottom: 1px solid;
+	margin-bottom: 1.875em;
+	padding-bottom: 0.8125em;
+}
+/* links */
+
+a {
+	text-decoration: none;
+	color: #065588;
+}
+a:hover,
+a:active {
+	text-decoration: underline;
+}
+/* block spacing */
+
+p,
+blockquote,
+.md-fences {
+	margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 1.5em;
+}
+/* blockquote */
+
+blockquote {
+	font-style: italic;
+	border-left: 5px solid;
+	margin-left: 2em;
+	padding-left: 1em;
+}
+/* lists */
+
+ul,
+ol {
+	margin: 0 0 1.5em 1.5em;
+}
+/* tables */
+.md-meta,.md-before, .md-after {
+	color:#999;
+}
+
+table {
+	margin-bottom: 1.5em;
+	/*24 / 16*/
+	font-size: 1em;
+	/* width: 100%; */
+}
+thead th,
+tfoot th {
+	padding: .25em .25em .25em .4em;
+	text-transform: uppercase;
+}
+th {
+	text-align: left;
+}
+td {
+	vertical-align: top;
+	padding: .25em .25em .25em .4em;
+}
+
+code,
+.md-fences {
+	background-color: #dadada;
+}
+
+code {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.md-fences {
+	margin-left: 2em;
+	margin-bottom: 3em;
+	padding-left: 1ch;
+	padding-right: 1ch;
+}
+
+pre,
+code,
+tt {
+	font-size: .875em;
+	line-height: 1.714285em;
+}
+/* some fixes */
+
+h1 {
+	line-height: 1.3em;
+	font-weight: normal;
+	margin-bottom: 0.5em;
+}
+
+p + ul,
+p + ol{
+	margin-top: .5em;
+}
+
+h3 + ul,
+h4 + ul,
+h5 + ul,
+h6 + ul,
+h3 + ol,
+h4 + ol,
+h5 + ol,
+h6 + ol {
+	margin-top: .5em;
+}
+
+li > ul,
+li > ol {
+	margin-top: inherit;
+	margin-bottom: 0;
+}
+
+li ol>li {
+	list-style-type: lower-alpha;
+}
+
+li li ol>li{
+	list-style-type: lower-roman;
+}
+
+h2,
+h3 {
+	margin-bottom: .75em;
+}
+hr {
+	border-top: none;
+	border-right: none;
+	border-bottom: 1px solid;
+	border-left: none;
+}
+h1 {
+	border-color: #c5c5c5;
+}
+blockquote {
+	border-color: #bababa;
+	color: #656565;
+}
+
+blockquote ul,
+blockquote ol {
+	margin-left:0;
+}
+
+.ty-table-edit {
+	background-color: transparent;
+}
+thead {
+	background-color: #dadada;
+}
+tr:nth-child(even) {
+	background: #e8e7e7;
+}
+hr {
+	border-color: #c5c5c5;
+}
+.task-list{
+	padding-left: 1rem;
+}
+
+.md-task-list-item {
+	padding-left: 1.5rem;
+	list-style-type: none;
+}
+
+.md-task-list-item > input:before {
+	content: '\221A';
+	display: inline-block;
+	width: 1.25rem;
+  	height: 1.6rem;
+	vertical-align: middle;
+	text-align: center;
+	color: #ddd;
+	background-color: #F3F2EE;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	color: inherit;
+}
+
+#write pre.md-meta-block {
+	min-height: 1.875rem;
+	color: #555;
+	border: 0px;
+	background: transparent;
+	margin-top: -4px;
+	margin-left: 1em;
+	margin-top: 1em;
+}
+
+.md-image>.md-meta {
+	color: #9B5146;
+}
+
+.md-image>.md-meta{
+	font-family: Menlo, 'Ubuntu Mono', Consolas, 'Courier New', 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', serif;
+}
+
+
+#write>h3.md-focus:before{
+	left: -1.5rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h4.md-focus:before{
+	left: -1.5rem;
+	top: .25rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h5.md-focus:before{
+	left: -1.5rem;
+	top: .0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h6.md-focus:before{
+	left: -1.5rem;
+	top: 0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
+}
+
+.md-toc-content:empty:before{
+	color: #065588;
+}
+.md-toc-item {
+	color: #065588;
+}
+#write div.md-toc-tooltip {
+	background-color: #f3f2ee;
+}
+
+#typora-sidebar {
+	background-color: #f3f2ee;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+  	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+}
+
+.pin-outline #typora-sidebar {
+	background: inherit;
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+.pin-outline #typora-sidebar:hover .outline-title-wrapper {
+	border-left:1px dashed;
+}
+
+.outline-item:hover {
+  background-color: #dadada;
+  border-left: 28px solid #dadada;
+  border-right: 18px solid #dadada;
+}
+
+.typora-node .outline-item:hover {
+  	border-right: 28px solid #dadada;
+}
+
+.outline-expander:before {
+  content: "\f0da";
+  font-family: FontAwesome;
+  font-size:14px;
+  top: 1px;
+}
+
+.outline-expander:hover:before,
+.outline-item-open>.outline-item>.outline-expander:before {
+  content: "\f0d7";
+}
+
+.modal-content {
+	background-color: #f3f2ee;
+}
+
+.auto-suggest-container ul li {
+	list-style-type: none;
+}
+
+/** UI for electron */
+
+.megamenu-menu,
+#top-titlebar, #top-titlebar *,
+.megamenu-content {
+	background: #f3f2ee;
+	color: #1f0909;
+}
+
+.megamenu-menu-header {
+	border-bottom: 1px dashed #202B33;
+}
+
+.megamenu-menu {
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+header, .context-menu, .megamenu-content, footer {
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+    color: #1f0909;
+}
+
+#megamenu-back-btn {
+	color: #1f0909;
+	border-color: #1f0909;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title:before {
+	color: #1f0909;
+}
+
+.megamenu-menu-list li a:hover, .megamenu-menu-list li a.active {
+	color: inherit;
+	background-color: #e8e7df;
+}
+
+.long-btn:hover {
+	background-color: #e8e7df;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: inherit;
+}
+
+.megamenu-menu-panel .btn {
+	background-color: #D2D1D1;
+}
+
+.btn-default {
+	background-color: transparent;
+}
+
+.typora-sourceview-on #toggle-sourceview-btn,
+.ty-show-word-count #footer-word-count {
+	background: #c7c5c5;
+}
+
+#typora-quick-open {
+    background-color: inherit;
+}
+
+.md-diagram-panel {
+	margin-top: 8px;
+}
+
+.file-list-item-file-name {
+	font-weight: initial;
+}
+
+.file-list-item-summary {
+	opacity: 1;
+}
+
+.file-list-item {
+	color: #777;
+}
+
+.file-list-item.active {
+	background-color: inherit;
+	color: black;
+}
+
+.ty-side-sort-btn.active {
+	background-color: inherit;
+}
+
+.file-list-item.active .file-list-item-file-name  {
+	font-weight: bold;
+}
+
+.file-list-item{
+    opacity:1 !important;
+}
+
+.file-library-node.active>.file-node-background{
+	background-color: rgba(32, 43, 51, 0.63);
+	background-color: var(--active-file-bg-color);
+}
+
+.file-tree-node.active>.file-node-content{
+	color: white;
+	color: var(--active-file-text-color);
+}
+
+.md-task-list-item>input {
+	margin-left: -1.7em;
+	margin-top: calc(1rem - 12px);
+	-webkit-appearance: button;
+}
+
+input {
+	border: 1px solid #aaa;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title,
+.megamenu-menu-header:hover, 
+.megamenu-menu-header:focus {
+	color: inherit;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+	opacity: 1;
+}
+
+/* https://github.com/typora/typora-issues/issues/2046 */
+.os-windows-7 strong,
+.os-windows-7 strong  {
+	font-weight: 760;
+}
+
+.ty-preferences .btn-default {
+	background: transparent;
+}
+
+.ty-preferences .window-header {
+	border-bottom: 1px dashed #202B33;
+	box-shadow: none;
+}
+
+#sidebar-loading-template, #sidebar-loading-template.file-list-item {
+	color: #777;
+}
+
+.searchpanel-search-option-btn.active {
+	background: #777;
+	color: white;
+}
+
+.export-detail, .light .export-detail, 
+.light .export-item.active, 
+.light .export-items-list-control {
+	background: #e0e0e0;
+	border-radius: 2px;
+	font-weight: 700;
+	color: inherit
+}
+
+
+</style><title>新123</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h3 id='n°3---les-adjectifs-possessifs-et-les-pronoms-possessifs'><span>N°3 - Les adjectifs possessifs et les pronoms possessifs</span></h3><p><span>Complétez avec les possessifs : (用主语形容词或宾语代词填空)</span></p><ol><li><p><span>Je n&#39;ai pas de stylo. Tu peux me prêter __.</span></p></li><li><p><span>Nous avons nos habitudes et ils ont __.</span></p></li><li><p><span>Mange quelque chose avant __ partir.</span></p></li><li><p><span>Il se sait rien de ma vie et je ne sais rien de __. Qui a raison ?</span></p></li><li><p><span>Jean se plaint de ton comportement et tu te plains __. Qui a raison ?</span></p></li><li><p><span>Maïse et __ sœur Clarisse sont jumelles.</span></p></li><li><p><span>Nous sommes voisins. Son appartement est à côté __.</span></p></li><li><p><span>Je teur ai donné mon adresse et ils m&#39;ont donné __.</span></p></li><li><p><span>Je m&#39;occupe de mes affaires et vous vous occupez __.</span></p></li><li><p><span>Cette voiture est à vous, madame ? - Oui, c&#39;est </span><strong><span>. C&#39;est </span></strong><span> mari qui l&#39;achète.</span></p></li><li><p><span>La classe ! Faites __ devoirs en silence.</span></p></li><li><p><span>J&#39;aime bien __ sandales, Marise, __ ne sont pas si jolies.</span></p></li><li><p><span>Je prends __ lunettes de soleil. Tu prends __.</span></p></li><li><p><span>Les Dupont sont venus avec deux enfants. Ce sont __.</span></p></li><li><p><span>Donne-moi un peu d&#39;argent. __ souliers sont usés.</span></p></li></ol><hr /><h3 id='ii-choisissez-la-bonne-réponse-'><span>II. Choisissez la bonne réponse :</span></h3><ol><li><p><span>Bon enfant, il faisait souvent __ les opinions de son père.</span></p><ul><li><p><span>A. des siens</span></p></li><li><p><span>B. des siennes</span></p></li><li><p><span>C. sien</span></p></li><li><p><span>D. siennes</span></p></li></ul></li><li><p><span>J&#39;ai déjà recopié mes exercices. Avez-vous recopié __ ?</span></p><ul><li><p><span>A. vôtre</span></p></li><li><p><span>B. vôtres</span></p></li><li><p><span>C. le vôtre</span></p></li><li><p><span>D. les vôtres</span></p></li></ul></li><li><p><span>Vous avez mis __ dans cette histoire ?</span></p><ul><li><p><span>A. du vôtre</span></p></li><li><p><span>B. le vôtre</span></p></li><li><p><span>C. vôtre</span></p></li><li><p><span>D. votre</span></p></li></ul></li><li><p><span>Il a fait __ cette découverte scientifique.</span></p><ul><li><p><span>A. sien</span></p></li><li><p><span>B. sienne</span></p></li><li><p><span>C. le sien</span></p></li><li><p><span>D. la sienne</span></p></li></ul></li><li><p><span>Cette revue n&#39;est pas __.</span></p><p><span>A. le mien</span></p><p><span>B. la mienne</span>
+<span>C. les miennes</span>
+<span>D. les miennes</span></p><p>&nbsp;</p><p><span>6.Est-ce que ce sont mes billets ou </span><strong><span>__</span></strong><span>?</span>
+<span>A. les vôtres</span>
+<span>B. vos</span>
+<span>C. le vôtre</span>
+<span>D. vôtre</span></p><p><span>7.Elle a fait </span><strong><span>__</span></strong><span> cette initiative.</span>
+<span>A. sien</span>
+<span>B. sienne</span>
+<span>C. le sien</span>
+<span>D. la sienne</span></p><p><span>8.Rends-moi ces livres, ce sont </span><strong><span>__</span></strong><span>.</span>
+<span>A. le mien</span>
+<span>B. la mienne</span>
+<span>C. les miens</span>
+<span>D. les miennes</span></p><p><span>9.Je fais </span><strong><span>__</span></strong><span> chacune des phrases qu&#39;il a prononcées.</span>
+<span>A. mien</span>
+<span>B. mienne</span>
+<span>C. le mien</span>
+<span>D. la mienne</span></p><p><span>10.Ils ont une très belle maison, c&#39;est vrai, mais je préfère </span><strong><span>__</span></strong><span>. N&#39;est-ce pas, chérie?</span>
+<span>A. nôtre</span>
+<span>B. le nôtre</span>
+<span>C. la nôtre</span>
+<span>D. nôtres</span></p></li></ol><p>&nbsp;</p><h3 id='n2-iii---间接宾语的替代'><span>N2-III - 间接宾语的替代</span></h3><ol><li><p><span>Complétez avec un pronom.</span></p></li></ol><p><span>Léa : Pendant les vacances, j&#39;ai rencontré un garçon très sympa. Malheureusement, il habite en Belgique. </span></p><p><span>Eva : Il t&#39;écrit ?</span></p><p><span> Léa : Oui, il __ écrivait souvent. </span></p><p><span>Eva : Et tu __ réponds ? </span></p><p><span>Léa : Bien sûr. </span></p><p><span>Eva : Et il __ téléphone ? </span></p><p><span>Léa : Il __ téléphone ou je __ téléphone. Mes parents ne comprennent pas pourquoi les notes de téléphone augmentent. </span></p><p><span>Eva : Tu ne __ as pas dit ? Léa : Non, pas encore. </span></p><p><span>Eva : À propos de parents, je voudrais __ demander un conseil. Figure-toi que Cyril __ a demandé de vivre avec lui. </span></p><p><span>Léa : Tu __ as dit oui ? Eva : Évidemment. Mais je suis embêtée pour mes parents. Qu&#39;est-ce que je __ dis ? Je __ demande l&#39;autorisation ? </span></p><p><span>Léa : Tu es majeure. Tu n&#39;as pas besoin de __ demander d&#39;autorisation. Mais parle __ et explique __ ta situation !</span></p><hr /><h3 id='2-complétez-avec-le-pronom-qui-convient'><span>2. Complétez avec le pronom qui convient.</span></h3><ul><li><p><span>Est-ce que tu as téléphoné à Jacques et Martine ? Non, mais je vais __ téléphoner pour __ remercier.</span></p></li></ul><p><span>Jean a réussi au bac. Écrivons __ pour __ féliciter.</span></p><ul><li><p><span>Est-ce que je peux aller à la piscine ?</span></p></li><li><p><span>Oui, vas __.</span></p></li><li><p><span>Vous pensez toujours à votre projet de recherche pétrolière ?</span></p></li><li><p><span>Oui, nous __ pensons toujours. Avec votre autorisation, nous ferons des recherches sur la commune de Saint-Sauveur. Nous __ trouverons du pétrole. C&#39;est sûr.</span></p></li><li><p><span>Nous __ réparerons. Ce pétrole, vous ne __ avez pas encore trouvé.</span></p></li></ul><hr /><h3 id='3-répondez-avec-le-pronom-qui-convient-'><span>3. Répondez avec le pronom qui convient :</span></h3><ul><li><p><span>Elle arrivera à l&#39;heure ?</span></p></li><li><p><span>Je __ espère.</span></p></li><li><p><span>La loi serait changée ?</span></p></li><li><p><span>On __ parle.</span></p></li><li><p><span>Tu penses partir à l&#39;étranger ?</span></p></li><li><p><span>Je __ réfléchis.</span></p></li><li><p><span>Vous saviez que Paul était marié ?</span></p></li><li><p><span>Nous __ ignorions.</span></p></li><li><p><span>Il veut acheter une nouvelle voiture ?</span></p></li><li><p><span>Il __ a envie.</span></p></li><li><p><span>Ou vous étiez d&#39;accord, ou vous ne __ étiez pas.</span></p></li><li><p><span>Est-ce qu&#39;il est interdit de faire plus de 10% de réduction ?</span></p></li><li><p><span>Oui, je vous __ interdis.</span></p></li><li><p><span>Est-ce que vous m&#39;autorisez à offrir la climatisation ?</span></p></li><li><p><span>Oui, je vous __ autorise.</span></p></li></ul><p>&nbsp;</p><hr /><h3 id='ni---exercices---cod-et-pronom-neutre-le'><span>NI - Exercices - COD et pronom neutre &quot;le&quot;</span></h3><p><span>Choisissez la bonne réponse :</span></p><ol><li><p><span>Vous avez encore des brochures d&#39;information ?</span></p><p><span>Oui, il doit __ rester quelques-unes.</span></p><ul><li><p><span>A. en</span></p></li><li><p><span>B. les</span></p></li><li><p><span>C. leur</span></p></li><li><p><span>D. y</span></p></li></ul></li><li><p><span>Tu me prêtes tes disques ?</span></p><p><span>Oui, prends __.</span></p><ul><li><p><span>A. en</span></p></li><li><p><span>B. les</span></p></li><li><p><span>C. leur</span></p></li><li><p><span>D. le</span></p></li></ul></li><li><p><span>Enfin __ voilà, nos invités français.</span></p><ul><li><p><span>A. le</span></p></li><li><p><span>B. la</span></p></li><li><p><span>C. les</span></p></li><li><p><span>D. en</span></p></li></ul></li><li><p><span>Le directeur ne veut pas qu&#39;on __ dérange quand il travaille.</span></p><ul><li><p><span>A. lui</span></p></li><li><p><span>B. la</span></p></li><li><p><span>C. le</span></p></li><li><p><span>D. y</span></p></li></ul></li><li><p><span>Ne __ écris pas de mail, je n&#39;ai pas l&#39;accès à internet pour l&#39;instant.</span></p><ul><li><p><span>A. nous</span></p></li><li><p><span>B. l&#39;</span></p></li><li><p><span>C. moi</span></p></li><li><p><span>D. m&#39;</span></p></li></ul></li><li><p><span>__ voilà grande, Margaux, tu dois être indépendante !</span></p><ul><li><p><span>A. Tu</span></p></li><li><p><span>B. Tu</span></p></li><li><p><span>C. La</span></p></li><li><p><span>D. Le</span></p></li></ul></li><li><p><span>Maria n&#39;est pas encore au courant, appelle __ tout de suite.</span></p><ul><li><p><span>A. lui</span></p></li><li><p><span>B. le</span></p></li><li><p><span>C. elle</span></p></li><li><p><span>D. la</span></p></li></ul></li><li><p><span>Tu es trop gros ! Tu as besoin de faire régulièrement du sport.</span></p><p><span>Tu as raison, j&#39;ai besoin __ faire sous les jours.</span></p><ul><li><p><span>A. du</span></p></li><li><p><span>B. d&#39;en</span></p></li><li><p><span>C. de le</span></p></li><li><p><span>D. de</span></p></li></ul></li><li><p><span>Vous êtes satisfaits, nous __ voyons, du résultat.</span></p><ul><li><p><span>A. en</span></p></li><li><p><span>B. le</span></p></li><li><p><span>C. la</span></p></li><li><p><span>D. les</span></p></li></ul></li></ol><hr /><h3 id='ii-complétez-les-trous-avec-des-pronoms-convenables'><span>II. Complétez les trous avec des pronoms convenables.</span></h3><ol><li><p><span>Tu as de la glace ?</span></p><p><span>Oui, je (i) __ si.</span></p></li><li><p><span>Tu as gardé la voiture ?</span></p><p><span>Oui, je __ si garde en bas de l&#39;immeuble.</span></p></li></ol><ol start='3' ><li><p><span>Il manque de patience. Il </span><strong><span>__</span></strong><span> manque toujours avec ses collègues.</span></p></li><li><p><span>Quand est-ce qu&#39;elle fait les courses?</span></p><p><span>Elle </span><strong><span>__</span></strong><span> fait le samedi.</span></p></li><li><p><span>Il y avait un grand soleil. Je </span><strong><span>__</span></strong><span> ai profité pour faire sécher le linge dans le jardin.</span></p></li><li><p><span>Monsieur Drufin, vous avez de la tension et du cholestérol: il va falloir surveiller votre alimentation. Vous mangez de la viande rouge?</span></p><p><span>oui, docteur, je (manger beaucoup) </span><strong><span>__</span></strong><span>.</span></p><p><span>Vous mangez la peau du poulet rôti?</span></p><p><span>Ah oui, j&#39;adore ça, je (manger toujours) </span><strong><span>__</span></strong><span>.</span></p><p><span>Vous buvez du vin?</span></p><p><span>Oui, je (boire un verre) </span><strong><span>__</span></strong><span> à chaque repas.</span></p><p><span>Vous mangez des œufs?</span></p><p><span>Je (manger trois fois par semaine) </span><strong><span>__</span></strong><span>.</span></p><p><span>Et vous préférez les œufs à la coque ou sur le plat?</span></p><p><span>Je (faire souvent) </span><strong><span>__</span></strong><span> sur le plat, mais je (manger quelquefois) </span><strong><span>__</span></strong><span> à la coque.</span></p><p><span>Vous mangez du poisson?</span></p><p><span>Ah non, docteur, je n&#39;aime pas ça, je (ne jamais manger) </span><strong><span>__</span></strong><span>.</span></p></li><li><p><span>Thème</span></p></li></ol><ul><li><p><span>当你下雨时记得（penser à）把窗子关了，好吗？</span></p></li><li><p><span>好的，别担心，我会记得的。</span></p></li></ul><p>&nbsp;</p></div></div>
+</body>
+</html>
